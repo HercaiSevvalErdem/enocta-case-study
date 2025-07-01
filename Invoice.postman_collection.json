@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "fd7b82b1-c5e6-484f-998a-fc110b70c680",
+		"name": "Invoice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24039716",
+		"_collection_link": "https://www.postman.com/lunar-astronaut-28721/workspace/hercai/collection/24039716-fd7b82b1-c5e6-484f-998a-fc110b70c680?action=share&source=collection_link&creator=24039716"
+	},
+	"item": [
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user",
+						"value": "sevval test",
+						"type": "text"
+					},
+					{
+						"key": "pass",
+						"value": "123Qwe..",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "user",
+								"value": "sevval test",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "123Qwe..",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\"token\": \"wqn276487326589357\"} "
+				}
+			]
+		},
+		{
+			"name": "viewInvoice",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/viewInvoice?barcode=1434345362547364",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"viewInvoice"
+					],
+					"query": [
+						{
+							"key": "barcode",
+							"value": "1434345362547364"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "viewInvoice",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/viewInvoice?barcode=1434345362547364",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"viewInvoice"
+							],
+							"query": [
+								{
+									"key": "barcode",
+									"value": "1434345362547364"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": " {\r\n \"InvoiceLink\":\r\n\"http://abc.com/invoice.pdf\", \r\n\r\n\"Result\": {\"success\": true} \r\n}"
+				}
+			]
+		},
+		{
+			"name": "sendInvoice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "wqn276487326589357",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Barcode\": 1434345362547364\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/sendInvoice",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sendInvoice"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "sendInvoice",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "wqn276487326589357",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Barcode\": 1434345362547364\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/sendInvoice",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sendInvoice"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"result\": {\n        \"success\": true\n    }\n}"
+				}
+			]
+		}
+	]
+}
