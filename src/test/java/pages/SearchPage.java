@@ -31,6 +31,9 @@ public class SearchPage {
     @FindBy(id = "maxPrice")
     private WebElement maxPriceInput;
 
+    @FindBy(xpath = "//span[@id='priceSearchButton']")
+    private WebElement priceButton;
+
 
     @FindBy(xpath = "//div[contains(@class,'catalogView')]//div[contains(@class,'productItem')]")
     private List<WebElement> productList;
