@@ -1,11 +1,16 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.Driver;
 
+import java.time.Duration;
 import java.util.List;
 
 public class SearchPage {
@@ -17,53 +22,66 @@ public class SearchPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "searchData")
+    @FindBy(xpath = "//input[@id='searchData']")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//button[contains(@class,'searchBtn')]")
-    private WebElement searchButton;
-
-    @FindBy(id = "minPrice")
+    @FindBy(xpath = "//input[@id='minPrice']")
     private WebElement minPriceInput;
 
     @FindBy(id = "maxPrice")
     private WebElement maxPriceInput;
 
-    @FindBy(xpath = "//button[contains(@class,'priceFilterApply')]")
-    private WebElement priceFilterApplyButton;
 
     @FindBy(xpath = "//div[contains(@class,'catalogView')]//div[contains(@class,'productItem')]")
     private List<WebElement> productList;
 
-    // Arama yap
     public void aramaYap(String aramaKelimesi) {
-        searchInput.clear();
+        Actions actions = new Actions(Driver.getDriver());
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(searchInput));
+        actions.moveToElement(searchInput).click().perform();
         searchInput.sendKeys(aramaKelimesi);
-        searchButton.click();
+
+// Kutucuğa bir kez tıklama işlemi:
+        actions.moveToElement(searchInput).click().perform();
+
+// Enter tuşuna basma işlemi:
+        searchInput.sendKeys(Keys.ENTER);
+
+
+        //  minPrice elementinin gelmesini bekleyebiliriz
+        wait.until(ExpectedConditions.elementToBeClickable(minPriceInput));
     }
 
-    // Fiyat filtresi uygula
     public void fiyatAraligiFiltrele(String min, String max) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(minPriceInput));
         minPriceInput.clear();
         minPriceInput.sendKeys(min);
         maxPriceInput.clear();
         maxPriceInput.sendKeys(max);
-        priceFilterApplyButton.click();
     }
 
-    // Ürün seçimi (örneğin "en alt" ise son ürünü seç, sayı ise index'e göre)
     public void urunSec(String urunSirasi) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfAllElements(productList));
+
         int index = 0;
         if (urunSirasi.equalsIgnoreCase("en alt")) {
             index = productList.size() - 1;
         } else {
             try {
-                index = Integer.parseInt(urunSirasi) - 1;  // 1 bazlı -> 0 bazlı index
+                index = Integer.parseInt(urunSirasi) - 1;
             } catch (NumberFormatException e) {
-                index = 0;  // default ilk ürün
+                index = 0;
             }
         }
-        productList.get(index).click();
+
+        if (index >= 0 && index < productList.size()) {
+            productList.get(index).click();
+        } else {
+            throw new RuntimeException("Belirtilen sıra geçerli değil: " + urunSirasi);
+        }
     }
 
     public int urunSayisi() {
