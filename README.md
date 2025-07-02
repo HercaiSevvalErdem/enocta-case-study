@@ -82,31 +82,7 @@ Bu projede API testleri için **Postman Mock Server** kullanılmıştır. Mock S
 - **viewInvoice**: GET isteği ile verilen barkod numarasına ait fatura bilgisi alınır.
 - **sendInvoice**: Token ile yetkilendirilmiş POST isteği ile fatura gönderimi yapılır.
 
-### Koleksiyon Örneği
-
-```json
-{
-  "name": "token",
-  "request": {
-    "method": "POST",
-    "header": [
-      {"key": "user", "value": "sevval test"},
-      {"key": "pass", "value": "123Qwe.."}
-    ],
-    "url": "{{url}}/token"
-  },
-  "response": [
-    {
-      "status": "OK",
-      "code": 200,
-      "body": "{\"token\": \"wqn276487326589357\"}"
-    }
-  ]
-}
-
----
-
-## 👩‍💻 Geliştirici
+### 👩‍💻 Geliştirici
 
 - **Ad:** Hercai Şevval Erdem  
 - 📧 `hercaierdem27@gmail.com`  
@@ -114,4 +90,4 @@ Bu projede API testleri için **Postman Mock Server** kullanılmıştır. Mock S
 
 ---
 
-> Bu proje, bir iş başvurusu case çalışması kapsamında hazırlanmıştır.  
+> Bu proje, bir iş başvurusu case çalışması kapsamında hazırlanmıştır.
