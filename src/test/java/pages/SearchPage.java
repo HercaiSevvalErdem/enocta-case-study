@@ -22,7 +22,7 @@ public class SearchPage {
         this.driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
 
-        // ✅ Implicit Wait tanımlandı
+        // Implicit Wait tanımlandı
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 

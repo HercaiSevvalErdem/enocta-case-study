@@ -11,4 +11,4 @@ Feature: Sepete ürün ekleme
 
     Examples:
       | kullanici_adi            | sifre     | arama_terimi | min_fiyat | maks_fiyat | urun_sirasi | satici_stratejisi  |
-      | hercaierdem27@gmail.com  | 123Qwe..  | cep telefonu | 15000     | 20000      | en alt      | en dusuk puanli     |
+      | hercaierdem27@gmail.com  | 123Qwe..  | cep telefonu | 15000     | 20000      | en alt      | en dusuk puanli    |

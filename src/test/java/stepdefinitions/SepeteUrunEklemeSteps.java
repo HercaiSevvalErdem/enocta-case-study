@@ -7,13 +7,13 @@ import pages.ProductPage;
 
 public class SepeteUrunEklemeSteps {
 
-    LoginPage homePage = new LoginPage();
+    LoginPage loginPage = new LoginPage();
     SearchPage searchPage = new SearchPage();
     ProductPage productPage = new ProductPage();
 
     @Given("kullanıcı {string} ve {string} bilgileri ile giriş yapar")
     public void kullanici_giris_yapar(String kullaniciAdi, String sifre) {
-        homePage.girisYap(kullaniciAdi, sifre);
+        loginPage.girisYap(kullaniciAdi, sifre);
     }
 
     @When("kullanıcı {string} araması yapar")
