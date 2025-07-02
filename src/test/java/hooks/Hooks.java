@@ -27,6 +27,6 @@ public class Hooks {
         }
 
         // Testten sonra driver'ı kapat
-     //   Driver.closeDriver();
+       Driver.closeDriver();
     }
 }

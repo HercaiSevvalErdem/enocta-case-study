@@ -16,10 +16,14 @@ import java.util.List;
 public class SearchPage {
 
     WebDriver driver;
+    Actions actions = new Actions(Driver.getDriver());
 
     public SearchPage() {
         this.driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
+
+        // ✅ Implicit Wait tanımlandı
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @FindBy(xpath = "//input[@id='searchData']")
@@ -31,15 +35,12 @@ public class SearchPage {
     @FindBy(id = "maxPrice")
     private WebElement maxPriceInput;
 
-    @FindBy(xpath = "//span[@id='priceSearchButton']")
-    private WebElement priceButton;
-
 
     @FindBy(xpath = "//div[contains(@class,'catalogView')]//div[contains(@class,'productItem')]")
     private List<WebElement> productList;
 
     public void aramaYap(String aramaKelimesi) {
-        Actions actions = new Actions(Driver.getDriver());
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(searchInput));
         actions.moveToElement(searchInput).click().perform();
@@ -63,6 +64,7 @@ public class SearchPage {
         minPriceInput.sendKeys(min);
         maxPriceInput.clear();
         maxPriceInput.sendKeys(max);
+        searchInput.sendKeys(Keys.ENTER);
     }
 
     public void urunSec(String urunSirasi) {
