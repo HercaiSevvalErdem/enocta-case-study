@@ -70,8 +70,7 @@ Senaryo başarısız olursa, otomatik olarak ekran görüntüsü alınır ve `Cu
 ## 📬 API Testleri
 
 Postman kullanılarak mock server üzerinden örnek testler yazıldı.  
-Collection ve environment dosyaları `postman/` klasörüne eklenmiştir.
-
+Collection ve environment dosyaları `Invoice.postman_collection.json dosyasından ` klasörüne eklenmiştir.
 
 ---
 
