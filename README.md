@@ -72,6 +72,38 @@ Senaryo başarısız olursa, otomatik olarak ekran görüntüsü alınır ve `Cu
 Postman kullanılarak mock server üzerinden örnek testler yazıldı.  
 Collection ve environment dosyaları `Invoice.postman_collection.json dosyasından ` klasörüne eklenmiştir.
 
+## Postman Mock Server Hakkında
+
+Bu projede API testleri için **Postman Mock Server** kullanılmıştır. Mock Server, gerçek backend servisi olmadan API çağrılarına önceden tanımlanmış cevaplar vererek test sürecini kolaylaştırır.
+
+### Koleksiyon İçeriği
+
+- **token**: Kullanıcı adı ve şifre ile POST isteği yapılarak token alınır.
+- **viewInvoice**: GET isteği ile verilen barkod numarasına ait fatura bilgisi alınır.
+- **sendInvoice**: Token ile yetkilendirilmiş POST isteği ile fatura gönderimi yapılır.
+
+### Koleksiyon Örneği
+
+```json
+{
+  "name": "token",
+  "request": {
+    "method": "POST",
+    "header": [
+      {"key": "user", "value": "sevval test"},
+      {"key": "pass", "value": "123Qwe.."}
+    ],
+    "url": "{{url}}/token"
+  },
+  "response": [
+    {
+      "status": "OK",
+      "code": 200,
+      "body": "{\"token\": \"wqn276487326589357\"}"
+    }
+  ]
+}
+
 ---
 
 ## 👩‍💻 Geliştirici
