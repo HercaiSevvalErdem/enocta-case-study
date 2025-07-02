@@ -12,7 +12,6 @@ Hepsiburada sitesi baz alınarak test senaryoları oluşturulmuş ve Cucumber + 
 - ⚙️ **Build Tool:** Maven  
 - 💻 **IDE:** IntelliJ IDEA  
 - 🔧 **API Testleri:** Postman  
-- 🐳 **Opsiyonel:** Docker (çalıştırma altyapısı için)  
 - 📸 **Screenshot:** Senaryo hatasında ekran görüntüsü alma  
 
 ---
@@ -28,7 +27,7 @@ src/
 │ │ └── utilities/ # Driver, ConfigReader, ReusableMethods vb.
 │ └── resources/
 │ ├── features/ # .feature dosyaları
-│ ├── hepsiBurada_data/ # Test verileri (opsiyonel)
+│ ├── n11_data/ # Test verileri (opsiyonel)
 │ └── config.properties # Test ayarları
 
 
@@ -72,6 +71,7 @@ Senaryo başarısız olursa, otomatik olarak ekran görüntüsü alınır ve `Cu
 
 Postman kullanılarak mock server üzerinden örnek testler yazıldı.  
 Collection ve environment dosyaları `postman/` klasörüne eklenmiştir.
+
 
 ---
 
