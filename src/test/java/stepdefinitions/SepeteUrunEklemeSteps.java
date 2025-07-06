@@ -5,7 +5,8 @@ import pages.LoginPage;
 import pages.SearchPage;
 import pages.ProductPage;
 
-public class SepeteUrunEklemeSteps {
+public class
+SepeteUrunEklemeSteps {
 
     LoginPage loginPage = new LoginPage();
     SearchPage searchPage = new SearchPage();
@@ -15,6 +16,7 @@ public class SepeteUrunEklemeSteps {
     public void kullanici_giris_yapar(String kullaniciAdi, String sifre) {
         loginPage.girisYap(kullaniciAdi, sifre);
     }
+
 
     @When("kullanıcı {string} araması yapar")
     public void kullanici_aramasi_yapar(String aramaKelimesi) {
@@ -49,3 +51,4 @@ public class SepeteUrunEklemeSteps {
         }
     }
 }
+
