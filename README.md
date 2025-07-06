@@ -7,7 +7,7 @@ Hepsiburada sitesi baz alınarak test senaryoları oluşturulmuş ve Cucumber + 
 
 ## 🚀 Kullanılan Teknolojiler
 
-- 🧪 **Test Framework:** Cucumber (BDD) + TestNG  
+- 🧪 **Test Framework:** Cucumber (BDD) + Junit + TestNG  
 - 🌐 **UI Testleri:** Selenium WebDriver  
 - ⚙️ **Build Tool:** Maven  
 - 💻 **IDE:** IntelliJ IDEA  
